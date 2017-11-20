@@ -24,8 +24,9 @@ function tc_set_plugin_meta( $links, $file ) {
 
 	if ( strpos( $file, 'artiss-transient-cleaner.php' ) !== false ) {
 
+		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/transient-cleaner">' . __( 'Github', 'artiss-transient-cleaner' ) . '</a>' ) );
 		$links = array_merge( $links, array( '<a href="http://wordpress.org/support/plugin/artiss-transient-cleaner">' . __( 'Support', 'artiss-transient-cleaner' ) . '</a>' ) );
-		$links = array_merge( $links, array( '<a href="https://artiss.blog/donate">' . __( 'Donate', 'artiss-transient-cleaner' ) . '</a>' ) );
+
 
 	}
 
@@ -158,7 +159,7 @@ function tc_add_options_help() {
 function tc_options_help() {
 
 	$help_text = '<p>' . __( 'This screen allows you to specify the default options for the Transient Cleaner plugin.', 'artiss-transient-cleaner' ) . '</p>';
-	$help_text .= '<p>' . __( "In addition, details of recent transient cleans are shown. Tick the 'Run Now' options to perform a clean, whether a full removal of transients or just the removal of expired tranients.", 'artiss-transient-cleaner' ) . '</p>';
+	$help_text .= '<p>' . __( "In addition, details of recent transient cleans are shown. Tick the 'Run Now' options to perform a clean, whether a full removal of transients or just the removal of expired transients.", 'artiss-transient-cleaner' ) . '</p>';
 	$help_text .= '<p>' . __( 'Remember to click the Save Changes button at the bottom of the screen for new settings to take effect.', 'artiss-transient-cleaner' ) . '</p></h4>';
 
 	return $help_text;
