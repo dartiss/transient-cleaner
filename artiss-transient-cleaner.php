@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Transient Cleaner
-Plugin URI: https://wordpress.org/plugins/artiss-transient-cleaner/
+Plugin URI: https://github.com/dartiss/transient-cleaner
 Description: Housekeep expired transients from your options table.
-Version: 1.5.3
+Version: 1.5.4
 Author: David Artiss
 Author URI: https://artiss.blog
 Text Domain: artiss-transient-cleaner

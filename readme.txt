@@ -3,8 +3,9 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: cache, clean, database, housekeep, options, table, tidy, transient, update, upgrade
 Requires at least: 4.6
-Tested up to: 4.7.4
-Stable tag: 1.5.3
+Tested up to: 4.9
+Requires PHP: 5.3
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,11 +28,11 @@ Technical specification...
 * Licensed under [GPLv2 (or later)](http://wordpress.org/about/gpl/ "GNU General Public License")
 * Designed for both single and multi-site installations
 * PHP7 compatible
-* Fully internationalized, ready for translations **If you would like to add a translation to his plugin then please head to our [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/artiss-transient-cleaner "Translating WordPress") page**
-
-But, most importantly, there are no premium features and no adverts - this is 100% complete and free! See the notes below for how to get started as well as the more advanced features.
+* Fully internationalized, ready for translations. **If you would like to add a translation to this plugin then please head to our [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/artiss-transient-cleaner "Translating WordPress") page**
 
 I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution wasn't totally mad, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
+
+Please visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") for the latest code development, planned enhancements and known issues.
 
 == The Settings Screen ==
 
@@ -49,7 +50,7 @@ To activate, add the following to your `wp-config.php` file...
 
 == Using hooks ==
 
-If you're the type of odd person who likes to code for WordPress (really?) then I've added a couple of hooks so you can call our rather spiffy housekeeping functions...
+If you're the type of odd person who likes to code for WordPress (really?) then I've added a couple of hooks so you can call our rather neat housekeeping functions...
 
 `housekeep_transients` - this will clear down any expired transients
 `clear_all_transients` - this will remove any and all transients, expired or otherwise
@@ -75,9 +76,9 @@ If you have one of these badly written plugins, yes. However, I've yet to come a
 
 = Have WordPress not done anything, then? =
 
-Yes, they implemented the clearing down of all transients upon a database upgrade. If you have a multisite installation. And you're on the main site. They don't optimise the table after either, which this plugin does.
+Yes, they implemented the clearing down of all transients upon a database upgrade. If you have a multisite installation. And you're on the main site. They don't optimize the table after either, which this plugin does.
 
-This could mean that the WordPress may run and ours as well but, well, if it's already been cleared then the second run isn't going to do anything so it doesn't add any overheads - it just ensures the optimisation occurs, no matter what.
+This could mean that the WordPress may run and ours as well but, well, if it's already been cleared then the second run isn't going to do anything so it doesn't add any overheads - it just ensures the optimization occurs, no matter what.
 
 = How often will expired transients be cleared down? =
 
@@ -97,6 +98,11 @@ A transient may consist of one or more records (normally a timed transient - the
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
 
+= 1.5.4 =
+* Maintenance: Assorted tweaks to the README
+* Maintenance: Removal of donation links BUT addition of Github links
+* Maintenance: Changing of some on-screen wording - correct spelling in some cases and to make US English in others
+
 = 1.5.3 =
 * Enhancement: README updates to reflect changed plugin directory
 * Maintenance: Minimum WordPress level for the plugin has been raised to 4.6, so various changes have been made to accommodate that
@@ -115,14 +121,14 @@ A transient may consist of one or more records (normally a timed transient - the
 * Enhancement: After WP 4.6 you no longer need to load the plugin's text domain. So I don't!
 * Enhancement: Added a links sidebar to the help drop-down
 * Maintenance: Changed the menu names so they no longer clash with other plugins
-* Maintenance: Making use of yoda conditions to ensure stability of code
+* Maintenance: Making use of Yoda conditions to ensure stability of code
 * Bug: Sorted bug which meant that changing the scheduled run time didn't work
 
 = 1.4.2 =
 * Maintenance: Updated branding, inc. adding donation links
 
 = 1.4.1 =
-* Bug: Awww... biscuits. I was being smart by including a call to a function to check something without realising you have to have WordPress 4.4 for it to work. Thankfully, it's not critical so I've removed it for now and will add a "proper" solution in future
+* Bug: Awww... biscuits. I was being smart by including a call to a function to check something without realizing you have to have WordPress 4.4 for it to work. Thankfully, it's not critical so I've removed it for now and will add a "proper" solution in future
 
 = 1.4 =
 * Enhancement: Re-written core code to work better with multisite installations
@@ -164,7 +170,7 @@ A transient may consist of one or more records (normally a timed transient - the
 * Enhancement: Improved transient cleaning code efficiency (including housekeeping MU wide transients)
 * Enhancement: Added administration screen (Tools->Transients) to allow ad-hoc runs and specify run options
 * Enhancement: Show within new admin screen whether orphaned transients have been found (in this case full clear of the option table is recommended)
-* Enhancement: Added internationalisation
+* Enhancement: Added internationalization
 * Enhancement: If external memory cache is in use display an admin box to indicate this plugin is not required
 
 = 1.1 =
@@ -175,5 +181,5 @@ A transient may consist of one or more records (normally a timed transient - the
 
 == Upgrade Notice ==
 
-= 1.5.3 =
+= 1.5.4 =
 * Various maintenance changes
