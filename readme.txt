@@ -1,11 +1,10 @@
 === Transient Cleaner ===
 Contributors: dartiss
-Donate link: https://artiss.blog/donate
 Tags: cache, clean, database, housekeep, options, table, tidy, transient, update, upgrade
 Requires at least: 4.6
-Tested up to: 4.9
+Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +28,7 @@ Technical specification...
 * Designed for both single and multi-site installations
 * PHP7 compatible
 * Fully internationalized, ready for translations. **If you would like to add a translation to this plugin then please head to our [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/artiss-transient-cleaner "Translating WordPress") page**
+* Gutenberg ready
 
 I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution wasn't totally mad, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
 
@@ -97,6 +97,12 @@ A transient may consist of one or more records (normally a timed transient - the
 == Changelog ==
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+
+= 1.5.5 =
+* Enhancement: Minor tweaks to how the options screen contents are generated
+* Enhancement: Improved the error reporting when the plugin is used with object caching
+* Bug: Settings link on plugin meta no longer appears if you're using object cache or using the 'lite' version of the plugin (i.e. when there is no options screen!)
+* Bug: If you were using object cache then the plugin was still queueing up a daily job to run the housekeeping anyway. I've now stopped that
 
 = 1.5.4 =
 * Maintenance: Assorted tweaks to the README
@@ -181,5 +187,5 @@ A transient may consist of one or more records (normally a timed transient - the
 
 == Upgrade Notice ==
 
-= 1.5.4 =
-* Various maintenance changes
+= 1.5.5 =
+* Assorted maintenance changes and a couple of bug fixes
