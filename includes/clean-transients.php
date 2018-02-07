@@ -44,9 +44,11 @@ add_action( 'housekeep_transients', 'tc_clean_transients' );
 
 function tc_set_up_scheduler() {
 
+	global $_wp_using_ext_object_cache;
+
 	// Check for conditions under which the scheduler requires settings up
 
-	if ( !wp_next_scheduled( 'housekeep_transients' ) && !wp_installing() ) { $schedule = true; } else { $schedule = false; }
+	if ( !wp_next_scheduled( 'housekeep_transients' ) && !wp_installing() && !$_wp_using_ext_object_cache ) { $schedule = true; } else { $schedule = false; }
 
 	// Set up schedule, if required
 

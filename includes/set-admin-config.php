@@ -25,8 +25,8 @@ function tc_set_plugin_meta( $links, $file ) {
 	if ( strpos( $file, 'artiss-transient-cleaner.php' ) !== false ) {
 
 		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/transient-cleaner">' . __( 'Github', 'artiss-transient-cleaner' ) . '</a>' ) );
-		$links = array_merge( $links, array( '<a href="http://wordpress.org/support/plugin/artiss-transient-cleaner">' . __( 'Support', 'artiss-transient-cleaner' ) . '</a>' ) );
 
+		$links = array_merge( $links, array( '<a href="http://wordpress.org/support/plugin/artiss-transient-cleaner">' . __( 'Support', 'artiss-transient-cleaner' ) . '</a>' ) );
 
 	}
 
@@ -49,11 +49,15 @@ add_filter( 'plugin_row_meta', 'tc_set_plugin_meta', 10, 2 );
 function tc_add_settings_link( $links, $file ) {
 
 	static $this_plugin;
-
 	if ( !$this_plugin ) { $this_plugin = plugin_basename( __FILE__ ); }
 
-	if ( strpos( $file, 'artiss-transient-cleaner.php' ) !== false ) {
-		$settings_link = '<a href="tools.php?page=tc-options">' . __( 'Settings', 'artiss-transient-cleaner' ) . '</a>';
+	global $_wp_using_ext_object_cache;
+	if ( defined( 'TC_LITE' ) && TC_LITE ) { $lite = true; } else { $lite = false; }
+
+	if ( !$_wp_using_ext_object_cache && !$lite && strpos( $file, 'artiss-transient-cleaner.php' ) !== false  ) {
+
+		$settings_link = '<a href="tools.php?page=transient-options">' . __( 'Settings', 'artiss-transient-cleaner' ) . '</a>';
+
 		array_unshift( $links, $settings_link );
 	}
 
@@ -76,7 +80,7 @@ function tc_show_admin_messages() {
 	global $_wp_using_ext_object_cache;
 
 	if ( $_wp_using_ext_object_cache ) {
-		echo '<div id="message" class="error" style="font-weight: bold; text-align: center"><p>' . __( 'An external object cache is in use so Transient Cleaner is not required. Please disable the plugin!', 'artiss-transient-cleaner' ) . '</p></div>';
+		echo '<div id="message" class="error"><p>' . __( 'An external object cache is in use so Transient Cleaner is not required. <strong>Please disable the plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
 	}
 }
 
@@ -102,7 +106,7 @@ function tc_menu_initialise() {
 
 		global $tc_options_hook;
 
-		$tc_options_hook = add_submenu_page( 'tools.php', __( 'Transient Cleaner Options', 'artiss-transient-cleaner' ),  __( 'Transient Cleaner', 'artiss-transient-cleaner' ), 'install_plugins', 'tc-options', 'tc_options' );
+		$tc_options_hook = add_submenu_page( 'tools.php', __( 'Transient Cleaner Options', 'artiss-transient-cleaner' ),  __( 'Transient Cleaner', 'artiss-transient-cleaner' ), 'install_plugins', 'transient-options', 'tc_options' );
 
 		add_action( 'load-' . $tc_options_hook, 'tc_add_options_help' );
 	}
