@@ -4,7 +4,7 @@ Tags: cache, clean, database, housekeep, options, table, tidy, transient, update
 Requires at least: 4.6
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,9 @@ A transient may consist of one or more records (normally a timed transient - the
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
 
+= 1.5.6 =
+* Bug: Had changed the settings screen name to fix another issue but forget to change it in one location, which meant settings couldn't be saved. Fixed and abject apologies.
+
 = 1.5.5 =
 * Enhancement: Minor tweaks to how the options screen contents are generated
 * Enhancement: Improved the error reporting when the plugin is used with object caching
@@ -187,5 +190,5 @@ A transient may consist of one or more records (normally a timed transient - the
 
 == Upgrade Notice ==
 
-= 1.5.5 =
-* Assorted maintenance changes and a couple of bug fixes
+= 1.5.6 =
+* Bug fix

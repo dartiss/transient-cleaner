@@ -59,7 +59,7 @@ if ( ( ( !empty( $_POST[ 'Options' ] ) ) or ( !empty( $_POST[ 'Upgrade' ] ) ) or
 $options = tc_get_options();
 ?>
 
-<form method="post" action="<?php echo get_bloginfo( 'wpurl' ) . '/wp-admin/tools.php?page=tc-options' ?>">
+<form method="post" action="<?php echo get_bloginfo( 'wpurl' ) . '/wp-admin/tools.php?page=transient-options' ?>">
 
 <?php
 

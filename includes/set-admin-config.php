@@ -27,7 +27,6 @@ function tc_set_plugin_meta( $links, $file ) {
 		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/transient-cleaner">' . __( 'Github', 'artiss-transient-cleaner' ) . '</a>' ) );
 
 		$links = array_merge( $links, array( '<a href="http://wordpress.org/support/plugin/artiss-transient-cleaner">' . __( 'Support', 'artiss-transient-cleaner' ) . '</a>' ) );
-
 	}
 
 	return $links;
@@ -187,4 +186,3 @@ function tc_options_sidebar() {
 
 	return $help_text;
 }
-?>
