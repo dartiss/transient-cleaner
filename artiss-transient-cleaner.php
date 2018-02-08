@@ -3,7 +3,7 @@
 Plugin Name: Transient Cleaner
 Plugin URI: https://github.com/dartiss/transient-cleaner
 Description: Housekeep expired transients from your options table.
-Version: 1.5.5
+Version: 1.5.6
 Author: David Artiss
 Author URI: https://artiss.blog
 Text Domain: artiss-transient-cleaner
