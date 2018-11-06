@@ -79,7 +79,13 @@ function tc_show_admin_messages() {
 	global $_wp_using_ext_object_cache;
 
 	if ( $_wp_using_ext_object_cache ) {
-		echo '<div id="message" class="error"><p>' . __( 'An external object cache is in use so Transient Cleaner is not required. <strong>Please disable the plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
+		echo '<div class="notice notice-warning"><p>' . __( 'An external object cache is in use so Transient Cleaner is not required. <strong>Please disable the plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
+	}
+
+	global $wp_version;
+
+	if ( version_compare( $wp_version, '4.9', '>=' ) ) {
+		echo '<div class="notice notice-warning"><p>' . __( 'Transient housekeeping is now part of WordPress core, as of version 4.9. <strong>Please disable the Transient Cleaner plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
 	}
 }
 
@@ -142,7 +148,7 @@ function tc_add_options_help() {
 	global $tc_options_hook;
 	$screen = get_current_screen();
 
-	if ( $screen->id != $tc_options_hook ) { return; }
+	if ( $screen->id !== $tc_options_hook ) { return; }
 
 	$screen -> add_help_tab( array( 'id' => 'tc-options-help-tab', 'title'	=> __( 'Help', 'artiss-transient-cleaner' ), 'content' => tc_options_help() ) );
 

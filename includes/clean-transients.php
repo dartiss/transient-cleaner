@@ -185,6 +185,8 @@ function tc_transient_delete( $clear_all ) {
 
 		// Save options field with number & timestamp
 
+		$results = array();
+
 		$results[ 'timestamp' ] = time() + ( get_option( 'gmt_offset' ) * 3600 );
 		$results[ 'records' ] = $records;
 
@@ -202,4 +204,3 @@ function tc_transient_delete( $clear_all ) {
 
 	return $cleaned;
 }
-?>

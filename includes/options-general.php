@@ -32,7 +32,7 @@ if ( ( ( !empty( $_POST[ 'Options' ] ) ) or ( !empty( $_POST[ 'Upgrade' ] ) ) or
 		$options[ 'schedule' ] = '00';
 	}
 
-	if ( $options[ 'schedule' ] != $old_options[ 'schedule' ] ) {
+	if ( $options[ 'schedule' ] !== $old_options[ 'schedule' ] ) {
 		wp_clear_scheduled_hook( 'housekeep_transients' );
 		tc_set_schedule( $options[ 'schedule' ] );
 	}
@@ -69,8 +69,8 @@ global $wpdb;
 $total_transients = $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->options WHERE option_name LIKE '%_transient_%'" );
 $total_timed_transients = $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->options WHERE option_name LIKE '%_transient_timeout_%'" );
 if ( is_multisite() ) {
-	$total_transients .= $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->sitemeta WHERE meta_key LIKE '_site_transient_%'" );
-	$total_timed_transients .= $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->sitemeta WHERE meta_key LIKE '_site_transient_timeout_%'" );
+	$total_transients += $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->sitemeta WHERE meta_key LIKE '_site_transient_%'" );
+	$total_timed_transients += $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->sitemeta WHERE meta_key LIKE '_site_transient_timeout_%'" );
 }
 $transient_number = $total_transients - $total_timed_transients;
 
@@ -81,7 +81,7 @@ if ( 0 <= $total_transients ) {
 	$expired_transients = $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->options WHERE option_name LIKE '%_transient_timeout_%' AND option_value < UNIX_TIMESTAMP()" );
 	if ( is_multisite() ) { $expired_transients .= $wpdb -> get_var( "SELECT COUNT(*) FROM $wpdb->sitemeta WHERE meta_key LIKE '%_transient_timeout_%' AND meta_value < UNIX_TIMESTAMP()" ); }
 	$text .= ' ';
-	if ( 1 == $expired_transients ) {
+	if ( 1 === $expired_transients ) {
 		$text .= sprintf( __( '%s transient has expired.', 'artiss-transient-cleaner' ), $expired_transients );
 	} else {
 		$text .= sprintf( __( '%s transients have expired.', 'artiss-transient-cleaner' ), $expired_transients );
@@ -122,30 +122,30 @@ echo '<p>' . $text . '</p>';
 <tr>
 <th scope="row"><?php echo ucwords( __( 'When to run', 'artiss-transient-cleaner' ) ); ?></th>
 <td><label for="when_to_run"><select name="when_to_run">
-<option value="00"<?php if ( "00" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>00:00</option>
-<option value="01"<?php if ( "02" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>01:00</option>
-<option value="02"<?php if ( "02" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>02:00</option>
-<option value="03"<?php if ( "03" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>03:00</option>
-<option value="04"<?php if ( "04" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>04:00</option>
-<option value="05"<?php if ( "05" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>05:00</option>
-<option value="06"<?php if ( "06" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>06:00</option>
-<option value="07"<?php if ( "07" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>07:00</option>
-<option value="08"<?php if ( "08" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>08:00</option>
-<option value="09"<?php if ( "09" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>09:00</option>
-<option value="10"<?php if ( "10" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>10:00</option>
-<option value="11"<?php if ( "11" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>11:00</option>
-<option value="12"<?php if ( "12" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>12:00</option>
-<option value="13"<?php if ( "13" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>13:00</option>
-<option value="14"<?php if ( "14" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>14:00</option>
-<option value="15"<?php if ( "15" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>15:00</option>
-<option value="16"<?php if ( "16" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>16:00</option>
-<option value="17"<?php if ( "17" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>17:00</option>
-<option value="18"<?php if ( "18" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>18:00</option>
-<option value="19"<?php if ( "19" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>19:00</option>
-<option value="20"<?php if ( "20" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>20:00</option>
-<option value="21"<?php if ( "21" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>21:00</option>
-<option value="22"<?php if ( "22" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>22:00</option>
-<option value="23"<?php if ( "23" == $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>23:00</option>
+<option value="00"<?php if ( "00" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>00:00</option>
+<option value="01"<?php if ( "02" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>01:00</option>
+<option value="02"<?php if ( "02" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>02:00</option>
+<option value="03"<?php if ( "03" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>03:00</option>
+<option value="04"<?php if ( "04" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>04:00</option>
+<option value="05"<?php if ( "05" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>05:00</option>
+<option value="06"<?php if ( "06" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>06:00</option>
+<option value="07"<?php if ( "07" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>07:00</option>
+<option value="08"<?php if ( "08" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>08:00</option>
+<option value="09"<?php if ( "09" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>09:00</option>
+<option value="10"<?php if ( "10" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>10:00</option>
+<option value="11"<?php if ( "11" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>11:00</option>
+<option value="12"<?php if ( "12" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>12:00</option>
+<option value="13"<?php if ( "13" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>13:00</option>
+<option value="14"<?php if ( "14" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>14:00</option>
+<option value="15"<?php if ( "15" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>15:00</option>
+<option value="16"<?php if ( "16" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>16:00</option>
+<option value="17"<?php if ( "17" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>17:00</option>
+<option value="18"<?php if ( "18" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>18:00</option>
+<option value="19"<?php if ( "19" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>19:00</option>
+<option value="20"<?php if ( "20" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>20:00</option>
+<option value="21"<?php if ( "21" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>21:00</option>
+<option value="22"<?php if ( "22" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>22:00</option>
+<option value="23"<?php if ( "23" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>23:00</option>
 </select></label><p class="description"><?php echo __( 'Housekeeping will occur at this time every day.', 'artiss-transient-cleaner' ); ?></p></td>
 </tr>
 

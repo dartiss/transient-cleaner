@@ -16,4 +16,3 @@ if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) { exit(); }
 
 delete_option( 'transient_clean_expired' );
 delete_option( 'transient_clean_all' );
-?>
