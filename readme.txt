@@ -2,15 +2,17 @@
 Contributors: dartiss
 Tags: cache, clean, database, housekeep, options, table, tidy, transient, update, upgrade
 Requires at least: 4.6
-Tested up to: 4.9.4
+Tested up to: 4.8.7
 Requires PHP: 5.3
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Housekeep expired transients from your options table. The original and best!
 
 == Description ==
+
+**As of version 4.9 of WordPress, transient housekeeping now takes place automatically - this plugin is therefore no longer required!**
 
 Housekeep expired transients from your options table. The original and best!
 
@@ -44,16 +46,18 @@ You can even request an optimization of the options table to give your system a 
 
 A "lite" mode is available. By activating this the options screen will no longer appear and default settings will be used. The advantage? Improved performance to Admin and, especially if you're running multi-site, no chance of anybody "tinkering" with the settings.
 
-To activate, add the following to your `wp-config.php` file...
+To activate, use the following...
 
 `define( 'TC_LITE', true );`
+
+This should be added to your `wp-config.php` file.
 
 == Using hooks ==
 
 If you're the type of odd person who likes to code for WordPress (really?) then I've added a couple of hooks so you can call our rather neat housekeeping functions...
 
-`housekeep_transients` - this will clear down any expired transients
-`clear_all_transients` - this will remove any and all transients, expired or otherwise
+* `housekeep_transients` - this will clear down any expired transients
+* `clear_all_transients` - this will remove any and all transients, expired or otherwise
 
 == Installation ==
 
@@ -97,6 +101,11 @@ A transient may consist of one or more records (normally a timed transient - the
 == Changelog ==
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+
+= 1.5.7 =
+* Maintenance: Transient housekeeping now takes place as part of WordPress 4.9 and above. Therefore, on all installations >= 4.9, an admin message will be shown to indicate as such
+* Maintenance: Some further tidying up of code
+* Bug: Fixed a multisite counting issue
 
 = 1.5.6 =
 * Bug: Had changed the settings screen name to fix another issue but forget to change it in one location, which meant settings couldn't be saved. Fixed and abject apologies.
@@ -190,5 +199,5 @@ A transient may consist of one or more records (normally a timed transient - the
 
 == Upgrade Notice ==
 
-= 1.5.6 =
-* Bug fix
+= 1.5.7 =
+* Important admin notice added for those running WP 4.9 or greater!

@@ -36,7 +36,7 @@ function tc_get_options() {
 
 	// Update the options, if changed, and return the result
 
-	if ( $options != $new_options && !$lite ) { update_option( 'transient_clean_options', $new_options ); }
+	if ( $options !== $new_options && !$lite ) { update_option( 'transient_clean_options', $new_options ); }
 
 	return $new_options;
 }
@@ -66,6 +66,4 @@ function tc_set_schedule( $hour ) {
 	wp_schedule_event( strtotime( $hour ) , 'daily', 'housekeep_transients' );
 
 	return $hour;
-
 }
-?>
