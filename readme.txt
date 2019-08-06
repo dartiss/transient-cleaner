@@ -2,7 +2,7 @@
 Contributors: dartiss
 Tags: cache, clean, database, housekeep, options, table, tidy, transient, update, upgrade
 Requires at least: 4.6
-Tested up to: 4.8.7
+Tested up to: 5.2.2
 Requires PHP: 5.3
 Stable tag: 1.5.7
 License: GPLv2 or later
@@ -35,6 +35,8 @@ Technical specification...
 I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution wasn't totally mad, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
 
 Please visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") for the latest code development, planned enhancements and known issues.
+
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.co](https://www.flaticon.com/ "Flaticon") is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0 "Creative Commons BY 3.0").
 
 == The Settings Screen ==
 
