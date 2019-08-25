@@ -36,8 +36,6 @@ I'd like to thank WordPress Developer Andrew Nacin for his early discussion on t
 
 Please visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") for the latest code development, planned enhancements and known issues.
 
-Icons made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.co](https://www.flaticon.com/ "Flaticon") is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0 "Creative Commons BY 3.0").
-
 == The Settings Screen ==
 
 Within `Administration` -> `Tools` -> `Transients` an options screen exists allowing you to tweak which of the various housekeeping you'd like to happen, including the ability to perform an ad-hoc run, and when you'd like the to be automatically scheduled.
