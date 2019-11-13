@@ -2,7 +2,7 @@
 Contributors: dartiss
 Tags: cache, clean, database, housekeep, options, table, tidy, transient, update, upgrade
 Requires at least: 4.6
-Tested up to: 5.2.2
+Tested up to: 5.3
 Requires PHP: 5.3
 Stable tag: 1.5.7
 License: GPLv2 or later
