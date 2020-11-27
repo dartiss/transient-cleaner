@@ -1,44 +1,36 @@
 === Transient Cleaner ===
 Contributors: dartiss
-Tags: cache, clean, database, housekeep, options, table, tidy, transient, update, upgrade
+Tags: cache, clean, database, options, transient
 Requires at least: 4.6
-Tested up to: 5.3
+Tested up to: 5.6
 Requires PHP: 5.3
 Stable tag: 1.5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Housekeep expired transients from your options table. The original and best!
+🧼 Remove expired transients from your options table. The original and best!
 
 == Description ==
 
-**As of version 4.9 of WordPress, transient housekeeping now takes place automatically - this plugin is therefore no longer required!**
-
-Housekeep expired transients from your options table. The original and best!
+Remove expired transients from your options table. The original and best!
 
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
 Unfortunately, expired transients only get deleted when you attempt to access them. If you don't access the transient then, even though it's expired, WordPress will not remove it. This is [a known "issue"](http://core.trac.wordpress.org/ticket/20316 "Ticket #20316") but due to reasons, which are explained in the FAQ, this has not been adequately resolved.
 
-Why is this a problem? Transients are often used by plugins to "cache" data (my own plugins included). Because of the housekeeping problems this means that expired data can be left and build up, resulting in a bloated database table.
+Why is this a problem? Transients are often used by plugins to "cache" data (my own plugins included). Because of this it means that expired data can be left and build up, resulting in a bloated database table.
 
 Meantime, this plugin is the hero that you've been waiting for. Simply activate the plugin, sit back and enjoy a much cleaner, smaller options table. It also adds the additional recommendation that after a database upgrade all transients will be cleared down.
 
-Technical specification...
+I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution made sense, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
 
-* Licensed under [GPLv2 (or later)](http://wordpress.org/about/gpl/ "GNU General Public License")
-* Designed for both single and multi-site installations
-* PHP7 compatible
-* Fully internationalized, ready for translations. **If you would like to add a translation to this plugin then please head to our [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/artiss-transient-cleaner "Translating WordPress") page**
-* Gutenberg ready
+Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
 
-I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution wasn't totally mad, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
-
-Please visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") for the latest code development, planned enhancements and known issues.
+👉 Please visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") for the latest code development, planned enhancements and known issues 👈
 
 == The Settings Screen ==
 
-Within `Administration` -> `Tools` -> `Transients` an options screen exists allowing you to tweak which of the various housekeeping you'd like to happen, including the ability to perform an ad-hoc run, and when you'd like the to be automatically scheduled.
+Within `Administration` -> `Tools` -> `Transients` an options screen exists allowing you to tweak when you'd like cleaning to happen, including the ability to perform an ad-hoc run, and when you'd like the to be automatically scheduled.
 
 You can even request an optimization of the options table to give your system a real "pep"!
 
@@ -54,7 +46,7 @@ This should be added to your `wp-config.php` file.
 
 == Using hooks ==
 
-If you're the type of odd person who likes to code for WordPress (really?) then I've added a couple of hooks so you can call our rather neat housekeeping functions...
+If you're the type of odd person who likes to code for WordPress (really?) then I've added a couple of hooks so you can call our rather neat cleaning functions...
 
 * `housekeep_transients` - this will clear down any expired transients
 * `clear_all_transients` - this will remove any and all transients, expired or otherwise
@@ -72,7 +64,7 @@ Voila! It's ready to go.
 
 = Why hasn't this been fixed in the WordPress core? =
 
-An attempt was made and lots of discussions ensued. Basically, some plugins don't use transients correctly and they use them as required storage instead of temporary cache data. This would mean any attempt by WordPress core to regularly housekeep transients may break some plugins and, hence, websites. WordPress didn't want to do this.
+An attempt was made and lots of discussions ensued. Basically, some plugins don't use transients correctly and they use them as required storage instead of temporary cache data. This would mean any attempt by WordPress core to regularly clean transients may break some plugins and, hence, websites. WordPress didn't want to do this.
 
 = Does that mean this plugin could break my site? =
 
@@ -100,10 +92,10 @@ A transient may consist of one or more records (normally a timed transient - the
 
 == Changelog ==
 
-[Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+I use semantic versioning, with the first release being 1.0.
 
 = 1.5.7 =
-* Maintenance: Transient housekeeping now takes place as part of WordPress 4.9 and above. Therefore, on all installations >= 4.9, an admin message will be shown to indicate as such
+* Maintenance: Transient cleaning now takes place as part of WordPress 4.9 and above. Therefore, on all installations >= 4.9, an admin message will be shown to indicate as such
 * Maintenance: Some further tidying up of code
 * Bug: Fixed a multisite counting issue
 
@@ -114,7 +106,7 @@ A transient may consist of one or more records (normally a timed transient - the
 * Enhancement: Minor tweaks to how the options screen contents are generated
 * Enhancement: Improved the error reporting when the plugin is used with object caching
 * Bug: Settings link on plugin meta no longer appears if you're using object cache or using the 'lite' version of the plugin (i.e. when there is no options screen!)
-* Bug: If you were using object cache then the plugin was still queueing up a daily job to run the housekeeping anyway. I've now stopped that
+* Bug: If you were using object cache then the plugin was still queueing up a daily job to run the cleaning anyway. I've now stopped that
 
 = 1.5.4 =
 * Maintenance: Assorted tweaks to the README
@@ -151,7 +143,7 @@ A transient may consist of one or more records (normally a timed transient - the
 = 1.4 =
 * Enhancement: Re-written core code to work better with multisite installations
 * Enhancement: Administration screen re-written to be more "in keeping" with the WordPress standard layout. More statistics about cleared transients are also shown
-* Enhancement: Instead of piggy-backing the housekeeping schedule (which some people turn off) I've instead implemented my own - it defaults to midnight but, via the administration screen, you can change it to whatever hour floats your boat
+* Enhancement: Instead of piggy-backing the existing cleaning schedule (which some people turn off) I've instead implemented my own - it defaults to midnight but, via the administration screen, you can change it to whatever hour floats your boat
 * Enhancement: For those nerdy enough that they want to code links to our amazing cleaning functions, we've added some super whizzy hooks. Check the instructions about for further details
 * Maintenance: This is now a Code Art production, so the author name has been updated and the donation link (including matching plugin meta) ripped out. I for one welcome our new overlords.
 * Maintenance: Renamed the functions that began with atc_ to tc_
@@ -185,14 +177,14 @@ A transient may consist of one or more records (normally a timed transient - the
 = 1.2 =
 * Maintenance: Split files because of additional code size
 * Maintenance: Removed run upon activation
-* Enhancement: Improved transient cleaning code efficiency (including housekeeping MU wide transients)
+* Enhancement: Improved transient cleaning code efficiency (including cleaning MU wide transients)
 * Enhancement: Added administration screen (Tools->Transients) to allow ad-hoc runs and specify run options
 * Enhancement: Show within new admin screen whether orphaned transients have been found (in this case full clear of the option table is recommended)
 * Enhancement: Added internationalization
 * Enhancement: If external memory cache is in use display an admin box to indicate this plugin is not required
 
 = 1.1 =
-* Enhancement: Transients will be initially housekept when the plugin is activated
+* Enhancement: Transients will be initially cleaned when the plugin is activated
 
 = 1.0 =
 * Initial release
