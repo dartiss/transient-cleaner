@@ -1,33 +1,41 @@
 <?php
-/*
-Plugin Name: Transient Cleaner
-Plugin URI: https://github.com/dartiss/transient-cleaner
-Description: Housekeep expired transients from your options table.
-Version: 1.5.7
-Author: David Artiss
-Author URI: https://artiss.blog
-Text Domain: artiss-transient-cleaner
-*/
-
 /**
-* Artiss Transient Cleaner
-*
-* Main code - include various functions
-*
-* @package	Artiss-Transient-Cleaner
-* @since	1.2
-*/
+ * Transient Cleaner
+ *
+ * @package           Artiss-Transient-Cleaner
+ * @author            David Artiss
+ * @license           GPL-2.0-or-later
+ *
+ * Plugin Name:       Transient Cleaner
+ * Plugin URI:        https://github.com/dartiss/transient-cleaner
+ * Description:       🧼 Clear expired transients from your options table.
+ * Version:           1.5.8
+ * Requires at least: 4.6
+ * Requires PHP:      7.4
+ * Author:            David Artiss
+ * Author URI:        https://artiss.blog
+ * Text Domain:       artiss-transient-cleaner
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ *
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License version 2, as published by the Free Software Foundation. You may NOT assume
+ * that you can use any other version of the GPL.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
 
 $functions_dir = plugin_dir_path( __FILE__ ) . 'includes/';
 
-// Include all the various functions
+// Include all the various functions.
 
-include_once( $functions_dir . 'clean-transients.php' );     			// General configuration set-up
+require_once $functions_dir . 'clean-transients.php';      // General configuration set-up.
 
-include_once( $functions_dir . 'shared-functions.php' );     			// Assorted shared functions
+require_once $functions_dir . 'shared-functions.php';      // Assorted shared functions.
 
 if ( is_admin() ) {
 
-	include_once( $functions_dir . 'set-admin-config.php' );			// Administration configuration
+	include_once $functions_dir . 'set-admin-config.php';  // Administration configuration.
 
 }
