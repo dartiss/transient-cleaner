@@ -79,13 +79,13 @@ function tc_show_admin_messages() {
 	global $_wp_using_ext_object_cache;
 
 	if ( $_wp_using_ext_object_cache ) {
-		echo '<div class="notice notice-warning"><p>' . __( 'An external object cache is in use so Transient Cleaner is not required. <strong>Please disable the plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
+		echo '<div class="notice notice-warning"><p>' . __( 'An external object cache is in use so Transient Cleaner is not required. <strong>Please deactivate the plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
 	}
 
 	global $wp_version;
 
 	if ( version_compare( $wp_version, '4.9', '>=' ) ) {
-		echo '<div class="notice notice-warning"><p>' . __( 'Transient housekeeping is now part of WordPress core, as of version 4.9. <strong>Please disable the Transient Cleaner plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
+		echo '<div class="notice notice-warning"><p>' . __( 'Transient cleaning is now part of WordPress core, as of version 4.9. <strong>Please deactivate the Transient Cleaner plugin.</strong>', 'artiss-transient-cleaner' ) . '</p></div>';
 	}
 }
 

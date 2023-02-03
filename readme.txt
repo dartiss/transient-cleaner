@@ -4,15 +4,15 @@ Tags: cache, clean, database, options, transient
 Requires at least: 4.6
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 1.5.7
+Stable tag: 1.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-🧼 Remove expired transients from your options table. The original and best!
+🧼 Clean expired transients from your options table. The original and best!
 
 == Description ==
 
-Remove expired transients from your options table. The original and best!
+Clean expired transients from your options table. The original and best!
 
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
@@ -93,6 +93,11 @@ A transient may consist of one or more records (normally a timed transient - the
 == Changelog ==
 
 I use semantic versioning, with the first release being 1.0.
+
+= 1.5.8 =
+* Enhancement: Changed some of the language used by the plugin to be more inclusive
+* Enhancement: New header meta added to the plugin
+* Bug: The scheduled event was not being removed during the uninstall routine - that's now been added
 
 = 1.5.7 =
 * Maintenance: Transient cleaning now takes place as part of WordPress 4.9 and above. Therefore, on all installations >= 4.9, an admin message will be shown to indicate as such
@@ -191,5 +196,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.5.7 =
-* Important admin notice added for those running WP 4.9 or greater!
+= 1.5.8 =
+* A few minor tweaks. Nothing important.

@@ -41,7 +41,7 @@ if ( ( ( !empty( $_POST[ 'Options' ] ) ) or ( !empty( $_POST[ 'Upgrade' ] ) ) or
 
 	update_option( 'transient_clean_options', $options );
 
-	// Run any transient housekeeping, if requested
+	// Run any transient cleaning, if requested
 
 	if ( !empty( $_POST[ 'Clean' ] ) ) { $deleted = tc_transient_delete( false ); }
 	if ( !empty( $_POST[ 'Upgrade' ] ) ) { $deleted = tc_transient_delete( true ); }
@@ -116,7 +116,7 @@ echo '<p>' . $text . '</p>';
 <tr>
 <th scope="row"><label for="clean_enable"><?php echo __( 'Enable', 'artiss-transient-cleaner' ); ?></label></th>
 <?php if ( isset( $options[ 'clean_enable' ] ) && ( $options[ 'clean_enable' ] ) ) { $checked = true; } else { $checked = false; } ?>
-<td><input type="checkbox" name="clean_enable" value="1"<?php checked( $checked ); ?>/><?php echo __( 'Housekeep expired transients daily', 'artiss-transient-cleaner' ); ?></td>
+<td><input type="checkbox" name="clean_enable" value="1"<?php checked( $checked ); ?>/><?php echo __( 'Clean expired transients daily', 'artiss-transient-cleaner' ); ?></td>
 </tr>
 
 <tr>
@@ -146,13 +146,13 @@ echo '<p>' . $text . '</p>';
 <option value="21"<?php if ( "21" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>21:00</option>
 <option value="22"<?php if ( "22" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>22:00</option>
 <option value="23"<?php if ( "23" === $options[ 'schedule' ] ) { echo " selected='selected'"; } ?>>23:00</option>
-</select></label><p class="description"><?php echo __( 'Housekeeping will occur at this time every day.', 'artiss-transient-cleaner' ); ?></p></td>
+</select></label><p class="description"><?php echo __( 'Cleaning will occur at this time every day.', 'artiss-transient-cleaner' ); ?></p></td>
 </tr>
 
 <tr>
 <th scope="row"><label for="clean_optimize"><?php echo __( 'Optimize', 'artiss-transient-cleaner' ); ?></label></th>
 <?php if ( isset( $options[ 'clean_optimize' ] ) && ( $options[ 'clean_optimize' ] ) ) { $checked = true; } else { $checked = false; } ?>
-<td><input type="checkbox" name="clean_optimize" value="1"<?php checked( $checked ); ?>/><?php echo __( 'Optimize table(s) afterward the housekeeping.', 'artiss-transient-cleaner' ); ?> <strong><?php echo __( 'Not recommended', 'artiss-transient-cleaner' ); ?></strong></td>
+<td><input type="checkbox" name="clean_optimize" value="1"<?php checked( $checked ); ?>/><?php echo __( 'Optimize table(s) after cleaning.', 'artiss-transient-cleaner' ); ?> <strong><?php echo __( 'Not recommended', 'artiss-transient-cleaner' ); ?></strong></td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ if ( $array !== false ) {
 <tr>
 <th scope="row"><label for="upgrade_optimize"><?php echo ucwords( __( 'Optimize afterwards', 'artiss-transient-cleaner' ) ); ?></label></th>
 <?php if ( isset( $options[ 'upgrade_optimize' ] ) && ( $options[ 'upgrade_optimize' ] ) ) { $checked = true; } else { $checked = false; } ?>
-<td><input type="checkbox" name="upgrade_optimize" value="1"<?php checked( $checked ); ?>/><?php echo __( 'Optimize table(s) afterward the housekeeping', 'artiss-transient-cleaner' ); ?></td>
+<td><input type="checkbox" name="upgrade_optimize" value="1"<?php checked( $checked ); ?>/><?php echo __( 'Optimize table(s) after cleaning', 'artiss-transient-cleaner' ); ?></td>
 </tr>
 
 <tr>

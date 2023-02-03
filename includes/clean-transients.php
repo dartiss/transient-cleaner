@@ -1,33 +1,31 @@
 <?php
 /**
-* Clean Transients
-*
-* Functions to clear down transient data
-*
-* @package	Artiss-Transient-Cleaner
-*/
+ * Clean Transients
+ *
+ * Functions to clear down transient data
+ *
+ * @package	Artiss-Transient-Cleaner
+ */
 
 /**
-* Clean Expired Transients
-*
-* Hook into scheduled deletions and clear down expired transients
-*
-* @since	1.0
-*
-* @return	string		Number of transients removed
-*/
+ * Clean Expired Transients
+ *
+ * Hook into scheduled deletions and clear down expired transients
+ *
+ * @return	string		Number of transients removed
+ */
 
 function tc_clean_transients() {
 
 	$cleaned = 0;
 
-	// Only perform clean if enabled
+	// Only perform clean if enabled.
 
 	$options = tc_get_options();
 
 	if ( $options[ 'clean_enable' ] ) { $cleaned = tc_transient_delete( false ); }
 
-	// Return number of cleaned transients
+	// Return number of cleaned transients.
 
 	return $cleaned;
 }
@@ -35,26 +33,28 @@ function tc_clean_transients() {
 add_action( 'housekeep_transients', 'tc_clean_transients' );
 
 /**
-* Set housekeeping schedule
-*
-* Set up scheduler for housekeeping
-*
-* @since	1.4
-*/
+ * Set cleaning schedule
+ *
+ * Set up scheduler for transient cleaning
+ */
 
 function tc_set_up_scheduler() {
 
 	global $_wp_using_ext_object_cache;
 
-	// Check for conditions under which the scheduler requires settings up
+	// Check for conditions under which the scheduler requires settings up.
 
-	if ( !wp_next_scheduled( 'housekeep_transients' ) && !wp_installing() && !$_wp_using_ext_object_cache ) { $schedule = true; } else { $schedule = false; }
+	if ( ! wp_next_scheduled( 'housekeep_transients' ) && ! wp_installing() && ! $_wp_using_ext_object_cache ) {
+		$schedule = true;
+	} else {
+		$schedule = false;
+	}
 
-	// Set up schedule, if required
+	// Set up schedule, if required.
 
 	if ( $schedule ) {
 		$options = tc_get_options();
-		tc_set_schedule( $options[ 'schedule' ] );
+		tc_set_schedule( $options['schedule'] );
 	}
 }
 
