@@ -2,7 +2,7 @@
 Contributors: dartiss
 Tags: cache, clean, database, options, transient
 Requires at least: 4.6
-Tested up to: 6.1
+Tested up to: 6.3
 Requires PHP: 7.4
 Stable tag: 1.5.8
 License: GPLv2 or later
