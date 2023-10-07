@@ -1,10 +1,10 @@
 === Transient Cleaner ===
 Contributors: dartiss
 Tags: cache, clean, database, options, transient
-Requires at least: 4.6
-Tested up to: 6.3
+Requires at least: 4.4
+Tested up to: 5.8
 Requires PHP: 7.4
-Stable tag: 1.5.8
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 Clean expired transients from your options table. The original and best!
+
+**This plugin is designed only for WordPress 5.8 or below, as transient cleaning is part of core functionality after that point. 
+
+In addition, this is the final version of this plugin, and it will no longer be maintained, other than urgent security or bug fixes.**
 
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
@@ -25,8 +29,6 @@ Meantime, this plugin is the hero that you've been waiting for. Simply activate 
 I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution made sense, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
 
 Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
-
-👉 Please visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") for the latest code development, planned enhancements and known issues 👈
 
 == The Settings Screen ==
 
@@ -62,19 +64,9 @@ Voila! It's ready to go.
 
 == Frequently Asked Questions ==
 
-= Why hasn't this been fixed in the WordPress core? =
+= Why does this not work on WordPress 5.9 or later? =
 
-An attempt was made and lots of discussions ensued. Basically, some plugins don't use transients correctly and they use them as required storage instead of temporary cache data. This would mean any attempt by WordPress core to regularly clean transients may break some plugins and, hence, websites. WordPress didn't want to do this.
-
-= Does that mean this plugin could break my site? =
-
-If you have one of these badly written plugins, yes. However, I've yet to come across anybody reporting an issue.
-
-= Have WordPress not done anything, then? =
-
-Yes, they implemented the clearing down of all transients upon a database upgrade. If you have a multisite installation. And you're on the main site. They don't optimize the table after either, which this plugin does.
-
-This could mean that the WordPress may run and ours as well but, well, if it's already been cleared then the second run isn't going to do anything so it doesn't add any overheads - it just ensures the optimization occurs, no matter what.
+Because transient housekeeping was fixed in WordPress 5.9, so it's not needed!
 
 = How often will expired transients be cleared down? =
 
@@ -93,6 +85,12 @@ A transient may consist of one or more records (normally a timed transient - the
 == Changelog ==
 
 I use semantic versioning, with the first release being 1.0.
+
+= 1.6 =
+* Final release!
+* Enhancement: Added new error screens to prevent activation after WordPress 5.8
+* Enhancement: Code quality improved
+* Maintenance: Removed links to Github repo, as this will be retired
 
 = 1.5.8 =
 * Enhancement: Changed some of the language used by the plugin to be more inclusive
@@ -196,5 +194,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.5.8 =
-* A few minor tweaks. Nothing important.
+= 1.6 =
+* Final planned release - new version detection screen and code quality improvements.

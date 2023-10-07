@@ -7,10 +7,10 @@
  * @license           GPL-2.0-or-later
  *
  * Plugin Name:       Transient Cleaner
- * Plugin URI:        https://github.com/dartiss/transient-cleaner
+ * Plugin URI:        https://wordpress.org/plugins/artiss-transient-cleaner/
  * Description:       🧼 Clear expired transients from your options table.
- * Version:           1.5.8
- * Requires at least: 4.6
+ * Version:           1.6
+ * Requires at least: 4.4
  * Requires PHP:      7.4
  * Author:            David Artiss
  * Author URI:        https://artiss.blog
@@ -25,6 +25,12 @@
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
+
+// Define global to hold the plugin base file name.
+
+if ( ! defined( 'TRANSIENT_CLEANER_PLUGIN_BASE' ) ) {
+	define( 'TRANSIENT_CLEANER_PLUGIN_BASE', plugin_basename( __FILE__ ) );
+}
 
 $functions_dir = plugin_dir_path( __FILE__ ) . 'includes/';
 

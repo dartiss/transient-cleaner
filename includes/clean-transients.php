@@ -4,7 +4,7 @@
  *
  * Functions to clear down transient data
  *
- * @package	Artiss-Transient-Cleaner
+ * @package Artiss-Transient-Cleaner
  */
 
 /**
@@ -12,9 +12,8 @@
  *
  * Hook into scheduled deletions and clear down expired transients
  *
- * @return	string		Number of transients removed
+ * @return string  Number of transients removed
  */
-
 function tc_clean_transients() {
 
 	$cleaned = 0;
@@ -23,7 +22,9 @@ function tc_clean_transients() {
 
 	$options = tc_get_options();
 
-	if ( $options[ 'clean_enable' ] ) { $cleaned = tc_transient_delete( false ); }
+	if ( $options['clean_enable'] ) {
+		$cleaned = tc_transient_delete( false );
+	}
 
 	// Return number of cleaned transients.
 
@@ -37,7 +38,6 @@ add_action( 'housekeep_transients', 'tc_clean_transients' );
  *
  * Set up scheduler for transient cleaning
  */
-
 function tc_set_up_scheduler() {
 
 	global $_wp_using_ext_object_cache;
@@ -61,79 +61,73 @@ function tc_set_up_scheduler() {
 add_action( 'init', 'tc_set_up_scheduler' );
 
 /**
-* Clear All Transients
-*
-* Hook into database upgrade and clear transients
-*
-* @since	1.0
-*
-* @return	string		Number of transients removed
-*/
-
+ * Clear All Transients
+ *
+ * Hook into database upgrade and clear transients
+ *
+ * @return string   Number of transients removed
+ */
 function tc_clear_transients() {
 
 	$cleared = 0;
 
-	// Only perform clear if enabled
+	// Only perform clear if enabled.
 
 	$options = tc_get_options();
 
-	if ( $options[ 'upgrade_enable' ] ) { $cleared = tc_transient_delete( true ); }
+	if ( $options['upgrade_enable'] ) {
+		$cleared = tc_transient_delete( true );
+	}
 
-	// Return number of cleared transients
+	// Return number of cleared transients.
 
 	return $cleared;
-
 }
 
 add_action( 'after_db_upgrade', 'tc_clear_transients' );
 add_action( 'clear_all_transients', 'tc_clear_transients' );
 
 /**
-* Delete Transients
-*
-* Shared function that will clear down requested transients
-*
-* @since	1.0
-*
-* @param	string	$expired	TRUE or FALSE, whether to clear all transients or not
-* @return	string				Number of removed transients
-*/
-
+ * Delete Transients
+ *
+ * Shared function that will clear down requested transients
+ *
+ * @param   string $clear_all  TRUE or FALSE, whether to clear all transients or not.
+ * @return  string             Number of removed transients
+ */
 function tc_transient_delete( $clear_all ) {
 
 	$cleaned = 0;
 
 	global $_wp_using_ext_object_cache;
 
-	if ( !$_wp_using_ext_object_cache ) {
+	if ( ! $_wp_using_ext_object_cache ) {
 
 		$options = tc_get_options();
 
 		global $wpdb;
 		$records = 0;
 
-		// Build and execute required SQL
+		// Build and execute required SQL.
 
 		if ( $clear_all ) {
 
-			// Clean from options table
+			// Clean from options table.
 
-			$sql = "DELETE FROM $wpdb->options WHERE option_name LIKE '%_transient_%'";
-			$clean = $wpdb -> query( $sql );
+			$sql      = "DELETE FROM $wpdb->options WHERE option_name LIKE '%_transient_%'";
+			$clean    = $wpdb->query( $sql );
 			$records .= $clean;
 
-			// If multisite, and the main network, also clear the sitemeta table
+			// If multisite, and the main network, also clear the sitemeta table.
 
 			if ( is_multisite() && is_main_network() ) {
-				$sql = "DELETE FROM $wpdb->sitemeta WHERE meta_key LIKE '_site_transient_%'";
-				$clean = $wpdb -> query( $sql );
+				$sql      = "DELETE FROM $wpdb->sitemeta WHERE meta_key LIKE '_site_transient_%'";
+				$clean    = $wpdb->query( $sql );
 				$records .= $clean;
 			}
-
 		} else {
 
-			// Delete transients from options table
+			// Delete transients from options table.
 
 			$sql = "
 				DELETE
@@ -153,10 +147,10 @@ function tc_transient_delete( $clear_all ) {
 				AND b.option_value < UNIX_TIMESTAMP()
 			";
 
-			$clean = $wpdb -> query( $sql );
+			$clean    = $wpdb->query( $sql );
 			$records .= $clean;
 
-			// Delete transients from multisite, if configured as such
+			// Delete transients from multisite, if configured as such.
 
 			if ( is_multisite() && is_main_network() ) {
 
@@ -178,27 +172,33 @@ function tc_transient_delete( $clear_all ) {
 					AND b.meta_value < UNIX_TIMESTAMP()
 				";
 
-				$clean = $wpdb -> query( $sql );
+				$clean    = $wpdb->query( $sql );
 				$records .= $clean;
 			}
 		}
 
-		// Save options field with number & timestamp
+		// Save options field with number & timestamp.
 
 		$results = array();
 
-		$results[ 'timestamp' ] = time() + ( get_option( 'gmt_offset' ) * 3600 );
-		$results[ 'records' ] = $records;
+		$results['timestamp'] = time() + ( get_option( 'gmt_offset' ) * 3600 );
+		$results['records']   = $records;
 
 		$option_name = 'transient_clean_';
-		if ( $clear_all ) { $option_name .= 'all'; } else { $option_name .= 'expired'; }
+		if ( $clear_all ) {
+			$option_name .= 'all';
+		} else {
+			$option_name .= 'expired';
+		}
 		update_option( $option_name, $results );
 
-		// Optimize the table after the deletions
+		// Optimize the table after the deletions.
 
-		if ( ( ( $options[ 'upgrade_optimize' ] ) && ( $clear_all ) ) or ( ( $options[ 'clean_optimize' ] ) && ( !$clear_all ) ) ) {
-			$wpdb -> query( "OPTIMIZE TABLE $wpdb->options" );
-			if ( is_multisite() && is_main_network() ) { $wpdb -> query( "OPTIMIZE TABLE $wpdb->sitemeta" ); }
+		if ( ( ( $options['upgrade_optimize'] ) && ( $clear_all ) ) || ( ( $options['clean_optimize'] ) && ( ! $clear_all ) ) ) {
+			$wpdb->query( "OPTIMIZE TABLE $wpdb->options" );
+			if ( is_multisite() && is_main_network() ) {
+				$wpdb->query( "OPTIMIZE TABLE $wpdb->sitemeta" );
+			}
 		}
 	}
 
