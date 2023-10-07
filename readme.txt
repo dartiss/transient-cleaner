@@ -14,9 +14,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Clean expired transients from your options table. The original and best!
 
-**This plugin is designed only for WordPress 5.8 or below, as transient cleaning is part of core functionality after that point. 
+**This plugin is designed only for WordPress 5.8 or below, as transient cleaning is part of core functionality after that point.** 
 
-In addition, this is the final version of this plugin, and it will no longer be maintained, other than urgent security or bug fixes.**
+**In addition, this is the final version of this plugin, and it will no longer be maintained, other than urgent security or bug fixes.**
 
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
