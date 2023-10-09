@@ -16,8 +16,6 @@ Clean expired transients from your options table. The original and best!
 
 **This plugin is designed only for WordPress 5.8 or below, as transient cleaning is part of core functionality after that point.** 
 
-**In addition, this is the final version of this plugin, and it will no longer be maintained, other than urgent security or bug fixes.**
-
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
 Unfortunately, expired transients only get deleted when you attempt to access them. If you don't access the transient then, even though it's expired, WordPress will not remove it. This is [a known "issue"](http://core.trac.wordpress.org/ticket/20316 "Ticket #20316") but due to reasons, which are explained in the FAQ, this has not been adequately resolved.
@@ -87,7 +85,6 @@ A transient may consist of one or more records (normally a timed transient - the
 I use semantic versioning, with the first release being 1.0.
 
 = 1.6 =
-* Final release!
 * Enhancement: Added new error screens to prevent activation after WordPress 5.8
 * Enhancement: Code quality improved
 * Maintenance: Removed links to Github repo, as this will be retired
@@ -195,4 +192,4 @@ I use semantic versioning, with the first release being 1.0.
 == Upgrade Notice ==
 
 = 1.6 =
-* Final planned release - new version detection screen and code quality improvements.
+* New version detection screen and code quality improvements.
