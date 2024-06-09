@@ -1,6 +1,6 @@
 # Transient Cleaner
 
-<img src="https://ps.w.org/artiss-transient-cleaner/assets/icon-128x128.png" align="left">Remove expired transients from your options table. The original and best!
+<img src="https://ps.w.org/artiss-transient-cleaner/assets/icon.svg" width=128px align="left" style="padding: 0 20px 20px 0;">Remove expired transients from your options table. The original and best!
 
 **This plugin is designed only for WordPress 5.8 or below, as transient cleaning is part of core functionality after that point.**
 
