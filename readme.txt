@@ -1,20 +1,27 @@
 === Transient Cleaner ===
 Contributors: dartiss
+Donate link: https://artiss.blog/donate
 Tags: cache, clean, database, options, transient
 Requires at least: 4.4
-Tested up to: 5.8
+Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+README revision: 1.0
 
-🧼 Clean expired transients from your options table. The original and best!
+Clean expired transients from your options table. The original and best!
 
 == Description ==
 
 Clean expired transients from your options table. The original and best!
 
-**This plugin is designed only for WordPress 5.8 or below, as transient cleaning is part of core functionality after that point.** 
+**Transient housekeeping was added to the core of WordPress after version 5.8. However, I have decided to open up this plugin to all versions to allow for manual transient cleaning. Longer term I am working on a new version of the plugin, designed specifically for all WordPress releases.**
+
+* Tested up to PHP 8.2
+* Fully complies with WordPress coding standards
+* Compliant with the stronger [WordPress VIP](https://wpvip.com/) coding standards, as well as compatibility with their platform
+* Community plugin - visit the [Github page](https://github.com/dartiss/[repo link] "Github") to get involved with the latest code development, request enhancements and report issues
 
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
@@ -23,10 +30,6 @@ Unfortunately, expired transients only get deleted when you attempt to access th
 Why is this a problem? Transients are often used by plugins to "cache" data (my own plugins included). Because of this it means that expired data can be left and build up, resulting in a bloated database table.
 
 Meantime, this plugin is the hero that you've been waiting for. Simply activate the plugin, sit back and enjoy a much cleaner, smaller options table. It also adds the additional recommendation that after a database upgrade all transients will be cleared down.
-
-I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution made sense, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
-
-Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
 
 == The Settings Screen ==
 
@@ -51,14 +54,18 @@ If you're the type of odd person who likes to code for WordPress (really?) then 
 * `housekeep_transients` - this will clear down any expired transients
 * `clear_all_transients` - this will remove any and all transients, expired or otherwise
 
+== Acknowledgements ==
+
+I'd like to thank WordPress Developer Andrew Nacin for his early discussion on this. Also, I'd like to acknowledge [the useful article at Everybody Staze](http://www.staze.org/wordpress-_transient-buildup/ "WordPress _transient buildup") for ensuring the proposed solution made sense, and [W-Shadow.com](http://w-shadow.com/blog/2012/04/17/delete-stale-transients/ "Cleaning Up Stale Transients") for the cleaning code.
+
+Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore).
+
 == Installation ==
 
-Transient Cleaner can be found and installed via the Plugin menu within WordPress administration (Plugins -> Add New). Alternatively, it can be downloaded from WordPress.org and installed manually...
+This plugin can be found and installed via the Plugin menu within WP Admin (Plugins -> Add New). Alternatively, it can be downloaded from WordPress.org and installed manually...
 
-1. Upload the entire `artiss-transient-cleaner` folder to your `wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress administration.
-
-Voila! It's ready to go.
+1. Upload the entire unzipped plugin folder to your `wp-content/plugins/` directory, either from WP Admin (Plugins -> Add New), your favorite FTP client or any other file manager
+2. Activate the plugin through the 'Plugins' menu in WP Admin (Plugins -> Installed Plugins)
 
 == Frequently Asked Questions ==
 
@@ -83,6 +90,17 @@ A transient may consist of one or more records (normally a timed transient - the
 == Changelog ==
 
 I use semantic versioning, with the first release being 1.0.
+
+= 1.7 =
+* Enhancement: Code quality improvements - major code changes to make sure all code guidelines are met
+* Enhancement: Using new cross-plugin shared functions
+* Enhancement: Tidy up of this README
+
+= 1.6.2 =
+* Bug: Fixed a bug in the settings screen. Remember kids - listen to your teachers when they tell you that spelling is important! Especially function names
+
+= 1.6.1 =
+* Maintenance: Removed the WordPress version check so that the plugin will remain active on all versions
 
 = 1.6 =
 * Enhancement: Added new error screens to prevent activation after WordPress 5.8
@@ -191,5 +209,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 1.6 =
-* New version detection screen and code quality improvements.
+= 1.7 =
+* Code quality improvements
