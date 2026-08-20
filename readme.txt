@@ -21,7 +21,7 @@ Clean expired transients from your options table. The original and best!
 * Tested up to PHP 8.2
 * Fully complies with WordPress coding standards
 * Compliant with the stronger [WordPress VIP](https://wpvip.com/) coding standards, as well as compatibility with their platform
-* Community plugin - visit the [Github page](https://github.com/dartiss/[repo link] "Github") to get involved with the latest code development, request enhancements and report issues
+* Community plugin - visit the [Github page](https://github.com/dartiss/transient-cleaner "Github") to get involved with the latest code development, request enhancements and report issues
 
 "Transients are a simple and standardized way of storing cached data in the WordPress database temporarily by giving it a custom name and a timeframe after which it will expire and be deleted."
 
