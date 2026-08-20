@@ -3,7 +3,7 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: cache, clean, database, options, transient
 Requires at least: 4.4
-Tested up to: 6.5
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.7
 License: GPLv2 or later
@@ -82,6 +82,10 @@ It should be noted too that this will only run once the appropriate hour has pas
 = In the administration screen it sometimes refers to the number of transients and other times the number of records. What's the difference? =
 
 A transient may consist of one or more records (normally a timed transient - the type that expires - has two) and without checking and matching them all up it can sometimes be hard to work out. So, where possible, it'll tell you the number of transients but, where it can't, it'll refer to the number of records on the database.
+
+= Do you support this plugin on forks of WordPress? =
+
+No. It was developed for WordPress and so forks remain unsupported. I have no intention of developing and testing this on any other version.
 
 == Screenshots ==
 
